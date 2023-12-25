@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  datasource:
+    # hive???
+    url: jdbc:hive2://zhonghuan.k9.luyouxia.net:15523/sales
+    username: root
+    password: root
+    driver-class-name: org.apache.hive.jdbc.HiveDriver
+    type: com.alibaba.druid.pool.DruidDataSource
