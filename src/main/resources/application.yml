@@ -10,8 +10,11 @@ mybatis-plus:
 spring:
   datasource:
     # hive???
-    url: jdbc:hive2://zhonghuan.k9.luyouxia.net:15523/sales
+    #url: jdbc:hive2://zhonghuan.k9.luyouxia.net:15523/sales
+    #username: root
+    #password: root
+    url: jdbc:hive2://122.152.220.198:10000/sales2
     username: root
-    password: root
+    password: 123456789
     driver-class-name: org.apache.hive.jdbc.HiveDriver
     type: com.alibaba.druid.pool.DruidDataSource

@@ -4,10 +4,12 @@ import com.example.cloudcomputing.common.Result;
 import com.example.cloudcomputing.mapper.GoodMapper;
 import com.example.cloudcomputing.mapper.GoodMapper;
 import com.example.cloudcomputing.pojo.Good;
+import org.apache.hadoop.hive.metastore.api.Decimal;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.nio.ByteBuffer;
 import java.util.List;
 
 @RestController
@@ -16,8 +18,9 @@ public class GoodController {
     @Resource
     private GoodMapper goodMapper;
     @PutMapping("")
-    public Result<?>addGood(@RequestParam String name, @RequestParam Integer uid, @RequestParam Integer sales, @RequestParam Integer stockpile, @RequestParam String price, @RequestParam String img, @RequestParam String main, @RequestParam String detail){
-        int res = goodMapper.insert(new Good(name,uid,sales,stockpile,new BigDecimal(price),img,main,detail,"No"));
+    public Result<?>addGood(@RequestParam String name, @RequestParam Integer uid, @RequestParam Integer sales, @RequestParam Integer stockpile, @RequestParam Double price, @RequestParam String img, @RequestParam String main, @RequestParam String detail){
+
+        int res = goodMapper.insert(new Good(name,uid,sales,stockpile,price,img,main,detail,name));
         if(res==0)
             return Result.error(400,"添加失败");
         else
@@ -58,6 +61,8 @@ public class GoodController {
     @GetMapping("")
     public Result<?> getGoods(@RequestParam Integer uid){
         List<Good> goods = goodMapper.findAllByUid(uid);
+
+
         if(goods==null||goods.isEmpty())
             return Result.error(400,"查询失败，数据库中没有该商品");
         else

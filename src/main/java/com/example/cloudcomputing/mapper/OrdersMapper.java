@@ -18,7 +18,7 @@ public interface OrdersMapper extends BaseMapper<Orders> {
             @Result(column = "quantity", property = "quantity"),
             @Result(column = "order_date", property = "order_date"),
     })
-    List<Orders> findAllByUidAndNameAndDate(@Param("uid")Integer uid, @Param("name")String name, @Param("date")Date date);
+    List<Orders> findAllByUidAndNameAndDate(@Param("uid")Integer uid, @Param("name")String name, @Param("date")String date);
 
     @Select("SELECT uid, name, quantity, order_date FROM `orders` WHERE uid = #{uid}")
     @Results({

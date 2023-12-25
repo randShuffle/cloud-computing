@@ -21,7 +21,7 @@ import java.util.Date;
 public class Orders {
     public Integer uid;
     public String name;
-    public Date order_date;
+    public String order_date;
     public Integer quantity;
 
 

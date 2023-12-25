@@ -23,11 +23,11 @@ public class OrdersController {
         return orderService.getOrdersByName(name);
     }
     @GetMapping("/uid/name/date")
-    public Result<?> getOrdersByUidAndNameAndDate(@RequestParam Integer uid,@RequestParam String name,@RequestParam Date date){
+    public Result<?> getOrdersByUidAndNameAndDate(@RequestParam Integer uid,@RequestParam String name,@RequestParam String date){
         return orderService.getOrdersByUidAndNameAndDate(uid,name,date);
     }
-//    @PutMapping("")
-//    public Result<?> addOrders(@RequestParam Integer uid,@RequestParam String name,@RequestParam String date,@RequestParam Integer quantity){
-//        return orderService.addOrders(uid,name,null,quantity);
-//    }
+    @PutMapping("")
+    public Result<?> addOrders(@RequestParam Integer uid,@RequestParam String name,@RequestParam String date,@RequestParam Integer quantity){
+        return orderService.addOrders(uid,name,null,quantity);
+    }
 }

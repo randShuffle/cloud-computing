@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.hadoop.hive.metastore.api.Decimal;
 
 import java.math.BigDecimal;
 
@@ -17,7 +18,7 @@ public class Good {
     private Integer uid;
     private Integer sales;
     private Integer stockpile;
-    private BigDecimal price;
+    private Double price;
     private String main;
     private String detail;
     private String img;

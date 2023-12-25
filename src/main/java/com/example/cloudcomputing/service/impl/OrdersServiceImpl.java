@@ -33,16 +33,16 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public Result<?> getOrdersByUidAndNameAndDate(Integer uid, String name, Date date) {
+    public Result<?> getOrdersByUidAndNameAndDate(Integer uid, String name, String date) {
         List<Orders> ordersList = ordersDao.findAllByUidAndNameAndDate(uid, name, date);
         return Result.success("Get orders successfully", ordersList);
     }
 
     @Override
-    public Result<?> addOrders(Integer uid, String name, Date date, Integer quantity) {
+    public Result<?> addOrders(Integer uid, String name, String date, Integer quantity) {
         if(date==null){
             // 获取当前时间
-            date = new Date();
+            date = new Date().toString();
         }
         Good good=goodDao.findByName(name);
         if(good==null){
